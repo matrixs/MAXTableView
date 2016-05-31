@@ -8,7 +8,6 @@
 
 #import "MAXTableViewImpl.h"
 #import "UITableViewCell+MAXTableViewCell.h"
-#import "NSObject+MHOverride.h"
 #import <objc/runtime.h>
 #import "MAXTestCell.h"
 
