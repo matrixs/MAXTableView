@@ -8,29 +8,25 @@
 
 /* Begin PBXBuildFile section */
 		5D6E479F3C1778690FFA382F /* libPods-MAXTableView.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6F8102C80771DF2FB370E628 /* libPods-MAXTableView.a */; };
-		E2AFB54F1CFD3F8C00F95D48 /* UITableViewCell+MAXTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AFB54E1CFD3F8C00F95D48 /* UITableViewCell+MAXTableViewCell.m */; };
 		E2AFB5521CFD639A00F95D48 /* NSObject+MHOverride.m in Sources */ = {isa = PBXBuildFile; fileRef = E2AFB5511CFD639A00F95D48 /* NSObject+MHOverride.m */; };
-		E2E54A611CFD2C2200C01065 /* MAXTableViewImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = E2E54A601CFD2C2200C01065 /* MAXTableViewImpl.m */; };
 		E2F233971CFCADAD00A10049 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F233961CFCADAD00A10049 /* main.m */; };
 		E2F2339A1CFCADAD00A10049 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F233991CFCADAD00A10049 /* AppDelegate.m */; };
 		E2F2339D1CFCADAD00A10049 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F2339C1CFCADAD00A10049 /* ViewController.m */; };
 		E2F233A01CFCADAD00A10049 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2F2339E1CFCADAD00A10049 /* Main.storyboard */; };
 		E2F233A21CFCADAD00A10049 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E2F233A11CFCADAD00A10049 /* Assets.xcassets */; };
 		E2F233A51CFCADAD00A10049 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E2F233A31CFCADAD00A10049 /* LaunchScreen.storyboard */; };
-		E2F233AE1CFCAF8500A10049 /* UITableView+MAXTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F233AD1CFCAF8500A10049 /* UITableView+MAXTableView.m */; };
 		E2F233BB1CFCD11000A10049 /* MAXTestCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F233BA1CFCD11000A10049 /* MAXTestCell.m */; };
+		E2F242351CFE03EF00FACC45 /* MAXTableViewImpl.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F242301CFE03EF00FACC45 /* MAXTableViewImpl.m */; };
+		E2F242361CFE03EF00FACC45 /* UITableView+MAXTableView.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F242321CFE03EF00FACC45 /* UITableView+MAXTableView.m */; };
+		E2F242371CFE03EF00FACC45 /* UITableViewCell+MAXTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = E2F242341CFE03EF00FACC45 /* UITableViewCell+MAXTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		124892608AA3101CB14D20A5 /* Pods-MAXTableView.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MAXTableView.debug.xcconfig"; path = "Pods/Target Support Files/Pods-MAXTableView/Pods-MAXTableView.debug.xcconfig"; sourceTree = "<group>"; };
 		408C2FCA8F28022ED0B4BF39 /* Pods-MAXTableView.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MAXTableView.release.xcconfig"; path = "Pods/Target Support Files/Pods-MAXTableView/Pods-MAXTableView.release.xcconfig"; sourceTree = "<group>"; };
 		6F8102C80771DF2FB370E628 /* libPods-MAXTableView.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-MAXTableView.a"; sourceTree = BUILT_PRODUCTS_DIR; };
-		E2AFB54D1CFD3F8C00F95D48 /* UITableViewCell+MAXTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+MAXTableViewCell.h"; sourceTree = "<group>"; };
-		E2AFB54E1CFD3F8C00F95D48 /* UITableViewCell+MAXTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+MAXTableViewCell.m"; sourceTree = "<group>"; };
 		E2AFB5501CFD639A00F95D48 /* NSObject+MHOverride.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSObject+MHOverride.h"; sourceTree = "<group>"; };
 		E2AFB5511CFD639A00F95D48 /* NSObject+MHOverride.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSObject+MHOverride.m"; sourceTree = "<group>"; };
-		E2E54A5F1CFD2C2200C01065 /* MAXTableViewImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAXTableViewImpl.h; sourceTree = "<group>"; };
-		E2E54A601CFD2C2200C01065 /* MAXTableViewImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXTableViewImpl.m; sourceTree = "<group>"; };
 		E2F233921CFCADAD00A10049 /* MAXTableView.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MAXTableView.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E2F233961CFCADAD00A10049 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		E2F233981CFCADAD00A10049 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -41,10 +37,14 @@
 		E2F233A11CFCADAD00A10049 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		E2F233A41CFCADAD00A10049 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E2F233A61CFCADAD00A10049 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		E2F233AC1CFCAF8500A10049 /* UITableView+MAXTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+MAXTableView.h"; sourceTree = "<group>"; };
-		E2F233AD1CFCAF8500A10049 /* UITableView+MAXTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+MAXTableView.m"; sourceTree = "<group>"; };
 		E2F233B91CFCD11000A10049 /* MAXTestCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAXTestCell.h; sourceTree = "<group>"; };
 		E2F233BA1CFCD11000A10049 /* MAXTestCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXTestCell.m; sourceTree = "<group>"; };
+		E2F2422F1CFE03EF00FACC45 /* MAXTableViewImpl.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MAXTableViewImpl.h; sourceTree = "<group>"; };
+		E2F242301CFE03EF00FACC45 /* MAXTableViewImpl.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MAXTableViewImpl.m; sourceTree = "<group>"; };
+		E2F242311CFE03EF00FACC45 /* UITableView+MAXTableView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableView+MAXTableView.h"; sourceTree = "<group>"; };
+		E2F242321CFE03EF00FACC45 /* UITableView+MAXTableView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableView+MAXTableView.m"; sourceTree = "<group>"; };
+		E2F242331CFE03EF00FACC45 /* UITableViewCell+MAXTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UITableViewCell+MAXTableViewCell.h"; sourceTree = "<group>"; };
+		E2F242341CFE03EF00FACC45 /* UITableViewCell+MAXTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UITableViewCell+MAXTableViewCell.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -79,6 +79,7 @@
 		E2F233891CFCADAD00A10049 = {
 			isa = PBXGroup;
 			children = (
+				E2F2422E1CFE03EF00FACC45 /* Source */,
 				E2F233941CFCADAD00A10049 /* MAXTableView */,
 				E2F233931CFCADAD00A10049 /* Products */,
 				7733AEB0EAA36782ECD7A68E /* Pods */,
@@ -110,12 +111,6 @@
 				E2F233A31CFCADAD00A10049 /* LaunchScreen.storyboard */,
 				E2F233A61CFCADAD00A10049 /* Info.plist */,
 				E2F233951CFCADAD00A10049 /* Supporting Files */,
-				E2F233AC1CFCAF8500A10049 /* UITableView+MAXTableView.h */,
-				E2F233AD1CFCAF8500A10049 /* UITableView+MAXTableView.m */,
-				E2E54A5F1CFD2C2200C01065 /* MAXTableViewImpl.h */,
-				E2E54A601CFD2C2200C01065 /* MAXTableViewImpl.m */,
-				E2AFB54D1CFD3F8C00F95D48 /* UITableViewCell+MAXTableViewCell.h */,
-				E2AFB54E1CFD3F8C00F95D48 /* UITableViewCell+MAXTableViewCell.m */,
 			);
 			path = MAXTableView;
 			sourceTree = "<group>";
@@ -126,6 +121,19 @@
 				E2F233961CFCADAD00A10049 /* main.m */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		E2F2422E1CFE03EF00FACC45 /* Source */ = {
+			isa = PBXGroup;
+			children = (
+				E2F2422F1CFE03EF00FACC45 /* MAXTableViewImpl.h */,
+				E2F242301CFE03EF00FACC45 /* MAXTableViewImpl.m */,
+				E2F242311CFE03EF00FACC45 /* UITableView+MAXTableView.h */,
+				E2F242321CFE03EF00FACC45 /* UITableView+MAXTableView.m */,
+				E2F242331CFE03EF00FACC45 /* UITableViewCell+MAXTableViewCell.h */,
+				E2F242341CFE03EF00FACC45 /* UITableViewCell+MAXTableViewCell.m */,
+			);
+			path = Source;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -249,13 +257,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				E2E54A611CFD2C2200C01065 /* MAXTableViewImpl.m in Sources */,
-				E2AFB54F1CFD3F8C00F95D48 /* UITableViewCell+MAXTableViewCell.m in Sources */,
+				E2F242351CFE03EF00FACC45 /* MAXTableViewImpl.m in Sources */,
 				E2F2339D1CFCADAD00A10049 /* ViewController.m in Sources */,
+				E2F242371CFE03EF00FACC45 /* UITableViewCell+MAXTableViewCell.m in Sources */,
 				E2AFB5521CFD639A00F95D48 /* NSObject+MHOverride.m in Sources */,
 				E2F2339A1CFCADAD00A10049 /* AppDelegate.m in Sources */,
-				E2F233AE1CFCAF8500A10049 /* UITableView+MAXTableView.m in Sources */,
 				E2F233971CFCADAD00A10049 /* main.m in Sources */,
+				E2F242361CFE03EF00FACC45 /* UITableView+MAXTableView.m in Sources */,
 				E2F233BB1CFCD11000A10049 /* MAXTestCell.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
