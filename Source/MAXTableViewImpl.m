@@ -9,7 +9,6 @@
 #import "MAXTableViewImpl.h"
 #import "UITableViewCell+MAXTableViewCell.h"
 #import <objc/runtime.h>
-#import "MAXTestCell.h"
 
 NSString *identifier = @"MAXCELL";
 
