@@ -9,7 +9,6 @@
 #import "UITableViewCell+MAXTableViewCell.h"
 #import <objc/runtime.h>
 
-const char WidthKey;
 @implementation UITableViewCell(MAXTableViewCell)
 
 +(void)load {
@@ -55,7 +54,10 @@ const char WidthKey;
 -(void)max_layoutSubviews {
     [self max_layoutSubviews];
     if ([self isKindOfClass:[UITableViewCell class]]) {
+        NSLayoutConstraint *constraint = [NSLayoutConstraint constraintWithItem:self.contentView attribute:NSLayoutAttributeWidth relatedBy:NSLayoutRelationEqual toItem:nil attribute:NSLayoutAttributeWidth multiplier:1 constant:self.bounds.size.width];
+        [self.contentView addConstraint:constraint];
         [self setPreferredMaxWidthOfUILabelForView:((UITableViewCell*)self).contentView];
+        [self.contentView removeConstraint:constraint];
     }
 }
 
@@ -67,23 +69,9 @@ const char WidthKey;
     } else {
         if ([view isKindOfClass:[UILabel class]]) {
             UILabel *label = ((UILabel*)view);
-            if (label.preferredMaxLayoutWidth == 0) {
-                ((UILabel*)view).preferredMaxLayoutWidth = [[self class] getCellWidth];
-            }
+            [label layoutIfNeeded];
+            label.preferredMaxLayoutWidth = label.bounds.size.width;
         }
-    }
-}
-
-+(void)setCellWidth:(CGFloat)width {
-    objc_setAssociatedObject([self class], &WidthKey, @(width), OBJC_ASSOCIATION_COPY_NONATOMIC);
-}
-
-+(CGFloat)getCellWidth {
-    id obj = objc_getAssociatedObject([self class], &WidthKey);
-    if (obj) {
-        return [obj floatValue];
-    } else {
-        return 0;
     }
 }
 

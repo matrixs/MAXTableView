@@ -25,9 +25,6 @@ NSString *identifier = @"MAXCELL";
     [self bindDataSource:dataSource delegate:delegate];
     [self.tableView registerClass:cellClass forCellReuseIdentifier:identifier];
     self.cellClass = cellClass;
-    if ([self.cellClass isSubclassOfClass:[UITableViewCell class]]) {
-        [self.cellClass setCellWidth:CGRectGetWidth(self.tableView.bounds)];
-    }
 }
 
 -(void)bindDataSource:(NSArray *)dataSource delegate:(id)delegate {

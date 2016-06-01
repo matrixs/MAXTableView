@@ -11,6 +11,5 @@
 @interface UITableViewCell(MAXTableViewCell)
 
 -(void)fillData:(id)data;
-+(void)setCellWidth:(CGFloat)width;
 
 @end

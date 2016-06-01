@@ -34,7 +34,6 @@
     content.textColor = [UIColor blueColor];
     content.font = [UIFont systemFontOfSize:14];
     content.numberOfLines = 0;
-    content.preferredMaxLayoutWidth = 375 - 100;
     [self.contentView addSubview:content];
         [content mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.contentView.mas_top).offset(10);
