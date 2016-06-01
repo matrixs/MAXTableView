@@ -29,6 +29,7 @@
         make.left.equalTo(self.contentView.mas_left).offset(10);
         make.top.equalTo(self.contentView.mas_top).offset(10);
         make.width.height.equalTo(@(70));
+//        make.bottom.equalTo(@(-20)).priority(100);//set contentView bottom padding
     }];
     content = [UILabel new];
     content.textColor = [UIColor blueColor];
@@ -39,13 +40,7 @@
         make.top.equalTo(self.contentView.mas_top).offset(10);
         make.left.equalTo(imageView.mas_right).offset(10);
         make.right.equalTo(self.contentView.mas_right).offset(-10);
-    }];
-    
-    //set contentView bottom padding
-    [self.contentView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.left.top.equalTo(@(0));
-        make.bottom.equalTo(content).offset(-20).priority(250);
-//        make.bottom.equalTo(imageView).offset(-100).priority(250);
+//            make.bottom.equalTo(@(-120)).priority(100); //set contentView bottom padding
     }];
     return self;
 }
