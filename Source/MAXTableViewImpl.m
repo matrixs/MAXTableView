@@ -11,11 +11,12 @@
 #import <objc/runtime.h>
 
 NSString *identifier = @"MAXCELL";
+const char BottomKey, BottomMarginKey;
 
 @interface MAXTableViewImpl()
 {
     UITableViewCell *_cell;
-    NSMutableArray *viewArray, *bottomArray;
+    BOOL _constraintsCached;
 }
 @end
 
@@ -96,23 +97,10 @@ NSString *identifier = @"MAXCELL";
 -(void)calculateCellHeight:(UITableViewCell*)cell withData:(id)data{
     [cell fillData:data];
     [self updateLayout:cell];
-//    CGFloat height = [cell.contentView systemLayoutSizeFittingSize:UILayoutFittingCompressedSize].height;
-    viewArray = [NSMutableArray new];
-    bottomArray = [NSMutableArray new];
-    for (NSLayoutConstraint *constraint in cell.contentView.constraints) {
-        if (cell.contentView == constraint.firstItem) {
-            NSLayoutAttribute firstAttribute = constraint.firstAttribute;
-            if (firstAttribute == NSLayoutAttributeBottom || firstAttribute == NSLayoutAttributeBottomMargin) {
-                if (constraint.secondItem) {
-                    [viewArray addObject:constraint.secondItem];
-                    [bottomArray addObject:@(fabs(constraint.constant))];
-                }
-            }
-        }
-    }
     CGFloat height = [self maxMarginBottomInSubviews:cell.contentView];
     height += 1;
     [self.heightArray addObject:@(height)];
+    _constraintsCached = YES;
 }
 
 -(CGFloat)maxMarginBottomInSubviews:(UIView*)view {
@@ -120,38 +108,45 @@ NSString *identifier = @"MAXCELL";
     if (view.subviews.count > 0) {
         for (UIView *subview in view.subviews) {
             CGFloat height = [self maxMarginBottomInSubviews:subview];
+            if (_constraintsCached) {
+                id bottomValue = objc_getAssociatedObject(subview, &BottomKey);
+                if (bottomValue) {
+                    height += [bottomValue floatValue];
+                }
+                id bottomMarginValue = objc_getAssociatedObject(subview, &BottomMarginKey);
+                if (bottomMarginValue) {
+                    height += [bottomMarginValue floatValue];
+                }
+            } else {
+                NSArray *array = view.constraints;
+                for (NSLayoutConstraint *constraint in array) {
+                    if (subview == constraint.firstItem) {
+                        NSLayoutAttribute firstAttribute = constraint.firstAttribute;
+                        if(firstAttribute == NSLayoutAttributeBottom) {
+                            CGFloat bottom = fabs(constraint.constant);
+                            height += bottom;
+                            objc_setAssociatedObject(subview, &BottomKey, @(bottom), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+                        }
+                        if (firstAttribute == NSLayoutAttributeBottomMargin) {
+                            CGFloat bottomMargin = fabs(constraint.constant);
+                            height += bottomMargin;
+                            objc_setAssociatedObject(subview, &BottomMarginKey, @(bottomMargin), OBJC_ASSOCIATION_RETAIN_NONATOMIC);
+                        }
+                    }
+                }
+            }
             if (height > maxMarginBottom) {
                 maxMarginBottom = height;
             }
         }
     } else {
-        for (UIView *subview in view.superview.subviews) {
-            CGFloat height = subview.frame.origin.y + subview.bounds.size.height;
-            for (NSLayoutConstraint *constraint in view.superview.constraints) {
-                if (subview == constraint.firstItem) {
-                    NSLayoutAttribute firstAttribute = constraint.firstAttribute;
-                    if(firstAttribute == NSLayoutAttributeBottom || firstAttribute == NSLayoutAttributeBottomMargin) {
-                        height += fabs(constraint.constant);
-                    }
-                }
-            }
-            NSInteger index = [viewArray indexOfObject:subview];
-            if (index >= 0 && index < bottomArray.count) {
-                height += [bottomArray[index] floatValue];
-            }
-            if (height > maxMarginBottom) {
-                maxMarginBottom = height;
-            }
-        }
+        return view.frame.origin.y + view.bounds.size.height;
     }
     return maxMarginBottom;
 }
 
 -(void)updateLayout:(UITableViewCell*)cell {
-    [cell setNeedsUpdateConstraints];
-    [cell updateConstraintsIfNeeded];
     cell.bounds = CGRectMake(0, 0, CGRectGetWidth(self.tableView.bounds), CGRectGetHeight(cell.bounds));
-    [cell setNeedsLayout];
     [cell layoutIfNeeded];
 }
 

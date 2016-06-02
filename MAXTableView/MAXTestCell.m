@@ -29,7 +29,7 @@
         make.left.equalTo(self.contentView.mas_left).offset(10);
         make.top.equalTo(self.contentView.mas_top).offset(10);
         make.width.height.equalTo(@(70));
-//        make.bottom.equalTo(@(-20)).priority(100);//set contentView bottom padding
+        make.bottom.equalTo(@(-20)).priority(100);//set contentView bottom padding
     }];
     content = [UILabel new];
     content.textColor = [UIColor blueColor];
@@ -40,19 +40,19 @@
         make.top.equalTo(self.contentView.mas_top).offset(10);
         make.left.equalTo(imageView.mas_right).offset(10);
         make.right.equalTo(self.contentView.mas_right).offset(-10);
-//            make.bottom.equalTo(@(-120)).priority(100); //set contentView bottom padding
+            make.bottom.equalTo(@(-60)).priority(100); //set contentView bottom padding
     }];
     return self;
 }
 
 -(void)fillData:(id)data {
-//    content.text = data[@"txt"];
-    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:data[@"txt"]];
-    NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
-    style.lineSpacing = 10;
-    style.lineBreakMode = NSLineBreakByWordWrapping;
-    [attributeString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, attributeString.length)];
-    content.attributedText = attributeString;
+    content.text = data[@"txt"];
+//    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:data[@"txt"]];
+//    NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
+//    style.lineSpacing = 10;
+//    style.lineBreakMode = NSLineBreakByWordWrapping;
+//    [attributeString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, attributeString.length)];
+//    content.attributedText = attributeString;
 }
 
 @end
