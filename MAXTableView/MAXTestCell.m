@@ -33,7 +33,7 @@
     }];
     content = [UILabel new];
     content.textColor = [UIColor blueColor];
-    content.font = [UIFont systemFontOfSize:14];
+    content.font = [UIFont systemFontOfSize:20];
     content.numberOfLines = 0;
     [self.contentView addSubview:content];
         [content mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -46,8 +46,13 @@
 }
 
 -(void)fillData:(id)data {
-    content.text = data[@"txt"];
-    
+//    content.text = data[@"txt"];
+    NSMutableAttributedString *attributeString = [[NSMutableAttributedString alloc] initWithString:data[@"txt"]];
+    NSMutableParagraphStyle *style = [NSMutableParagraphStyle new];
+    style.lineSpacing = 10;
+    style.lineBreakMode = NSLineBreakByWordWrapping;
+    [attributeString addAttribute:NSParagraphStyleAttributeName value:style range:NSMakeRange(0, attributeString.length)];
+    content.attributedText = attributeString;
 }
 
 @end

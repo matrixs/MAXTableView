@@ -71,7 +71,9 @@ const char MAXTableViewImplKey;
 }
 
 -(void)max_reloadData {
-    [self.tableViewImpl calcCellHeight];
+    if (![self.tableViewImpl.forward respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
+        [self.tableViewImpl calcCellHeight];
+    }
     [self max_reloadData];
 }
 
