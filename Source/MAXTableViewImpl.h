@@ -19,6 +19,8 @@
 @property(nonatomic, weak) UITableView *tableView;
 
 -(void)registerClass:(Class)cellClass bindDataSource:(NSArray *)dataSource delegate:(id)delegate;
+-(void)registerClass:(Class)cellClass bindDataSource:(NSArray *)dataSource delegate:(id)delegate identifier:(NSString *)identifier;
+-(void)registerNib:(UINib *)nib bindDataSource:(NSArray *)dataSource delegate:(id)delegate identifier:(NSString *)identifier;
 -(void)bindDataSource:(NSArray *)dataSource delegate:(id)delegate;
 -(void)calcCellHeight;
 

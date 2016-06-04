@@ -10,22 +10,37 @@
 #import "UITableViewCell+MAXTableViewCell.h"
 #import <objc/runtime.h>
 
-NSString *identifier = @"MAXCELL";
+NSString *MAXIdentifier = @"MAXCELL";
 const char BottomKey, BottomMarginKey;
 
 @interface MAXTableViewImpl()
 {
     UITableViewCell *_cell;
     BOOL _constraintsCached;
+    NSString *_cellIdentifier;
 }
 @end
 
 @implementation MAXTableViewImpl
 
 -(void)registerClass:(Class)cellClass bindDataSource:(NSArray *)dataSource delegate:(id)delegate {
+    if (!_cellIdentifier) {
+        _cellIdentifier = MAXIdentifier;
+    }
     [self bindDataSource:dataSource delegate:delegate];
-    [self.tableView registerClass:cellClass forCellReuseIdentifier:identifier];
+    [self.tableView registerClass:cellClass forCellReuseIdentifier:_cellIdentifier];
     self.cellClass = cellClass;
+}
+
+-(void)registerClass:(Class)cellClass bindDataSource:(NSArray *)dataSource delegate:(id)delegate identifier:(NSString *)identifier {
+    _cellIdentifier = identifier;
+    [self registerClass:cellClass bindDataSource:dataSource delegate:delegate];
+}
+
+-(void)registerNib:(UINib *)nib bindDataSource:(NSArray *)dataSource delegate:(id)delegate identifier:(NSString *)identifier {
+    _cellIdentifier = identifier;
+    [self bindDataSource:dataSource delegate:delegate];
+    [self.tableView registerNib:nib forCellReuseIdentifier:_cellIdentifier];
 }
 
 -(void)bindDataSource:(NSArray *)dataSource delegate:(id)delegate {
@@ -55,7 +70,7 @@ const char BottomKey, BottomMarginKey;
     if ([self.forward respondsToSelector:@selector(tableView:cellForRowAtIndexPath:)]) {
         cell = [self.forward tableView:tableView cellForRowAtIndexPath:indexPath];
     }
-    NSString *cellIdentifier = identifier;
+    NSString *cellIdentifier = _cellIdentifier;
     if (self.multiCellType) {
         cellIdentifier = [self identifierForRowAtIndexPath:indexPath];
     }
@@ -91,7 +106,7 @@ const char BottomKey, BottomMarginKey;
 }
 
 -(NSString*)identifierForRowAtIndexPath:(NSIndexPath*)indexPath {
-    return [NSString stringWithFormat:@"%@%ld", identifier, (long)indexPath.row];
+    return [NSString stringWithFormat:@"%@%ld", _cellIdentifier, (long)indexPath.row];
 }
 
 -(void)calculateCellHeight:(UITableViewCell*)cell withData:(id)data{
@@ -152,7 +167,11 @@ const char BottomKey, BottomMarginKey;
 
 -(void)calcCellHeight {
     if (!_cell) {
-        _cell = [[self.cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:identifier];
+        if (self.cellClass) {
+            _cell = [[self.cellClass alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:_cellIdentifier];
+        } else {
+            _cell = [self.tableView dequeueReusableCellWithIdentifier:_cellIdentifier];
+        }
     }
     for (id obj in self.data) {
         [self calculateCellHeight:_cell withData:obj];

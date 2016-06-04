@@ -64,6 +64,18 @@ const char MAXTableViewImplKey;
     [self.tableViewImpl registerClass:cellClass bindDataSource:dataSource delegate:delegate];
 }
 
+-(void)registerClass:(Class)cellClass bindDataSource:(NSArray *)dataSource delegate:(id)delegate identifier:(NSString *)identifier {
+    self.tableViewImpl.tableView = self;
+    self.tableFooterView = [UIView new];
+    [self.tableViewImpl registerClass:cellClass bindDataSource:dataSource delegate:delegate identifier:identifier];
+}
+
+-(void)registerNib:(UINib *)nib bindDataSource:(NSArray *)dataSource delegate:(id)delegate identifier:(NSString *)identifier {
+    self.tableViewImpl.tableView = self;
+    self.tableFooterView = [UIView new];
+    [self.tableViewImpl registerNib:nib bindDataSource:dataSource delegate:delegate identifier:identifier];
+}
+
 -(void)bindDataSource:(NSArray *)dataSource delegate:(id)delegate {
     self.tableViewImpl.tableView = self;
     self.tableFooterView = [UIView new];
