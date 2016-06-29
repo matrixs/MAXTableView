@@ -58,6 +58,13 @@ const char BottomKey, BottomMarginKey;
     return 1;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    if ([self.forward respondsToSelector:@selector(tableView:didSelectRowAtIndexPath:)]) {
+        [self.forward tableView:tableView didSelectRowAtIndexPath:indexPath];
+    }
+}
+
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     if ([self.forward respondsToSelector:@selector(tableView:numberOfRowsInSection:)]) {
         return [self.forward tableView:tableView numberOfRowsInSection:section];
