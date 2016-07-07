@@ -82,6 +82,10 @@ const char MAXTableViewImplKey;
     [self.tableViewImpl bindDataSource:dataSource delegate:delegate];
 }
 
+-(void)setDataSource:(NSArray*)dataSource {
+    self.tableViewImpl.data = dataSource;
+}
+
 -(void)max_reloadData {
     if (![self.tableViewImpl.forward respondsToSelector:@selector(tableView:heightForRowAtIndexPath:)]) {
         [self.tableViewImpl calcCellHeight];

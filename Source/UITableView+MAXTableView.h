@@ -17,5 +17,6 @@
 -(void)registerClass:(Class)cellClass bindDataSource:(NSArray *)dataSource delegate:(id)delegate identifier:(NSString *)identifier;
 -(void)registerNib:(UINib *)nib bindDataSource:(NSArray *)dataSource delegate:(id)delegate identifier:(NSString *)identifier;
 -(void)bindDataSource:(NSArray *)dataSource delegate:(id)delegate;
+-(void)setDataSource:(NSArray*)dataSource;
 
 @end
