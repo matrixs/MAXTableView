@@ -12,7 +12,7 @@
 
 @property(nonatomic) NSInteger section;
 @property(nonatomic) BOOL multiCellType;
-@property(nonatomic) NSArray *data;
+@property(nonatomic, strong) NSArray *data;
 @property(nonatomic, weak) id forward;
 @property(nonatomic) Class cellClass;
 @property(nonatomic) NSMutableArray *heightArray;
