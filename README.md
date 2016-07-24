@@ -48,4 +48,4 @@ See the CONTRIBUTING file for how to help out.
 
 ## License
 
-Pop is released under a GNU License. See LICENSE file for details.
+MAXTableView is released under a GNU License. See LICENSE file for details.
